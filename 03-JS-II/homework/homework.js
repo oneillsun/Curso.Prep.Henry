@@ -21,7 +21,7 @@ function mayoriaDeEdad(edad) {
   if (edad >= 18) {
     return "Allowed";
   } else if (edad < 18) {
-    return "Not Allowed";
+    return "Not allowed";
   }
 }
 
@@ -70,16 +70,16 @@ function colors(color) {
   //Usar el statement Switch.
   switch (color) {
     case "blue":
-      return "This is blue";
+      return "This is " + color;
       break;
     case "red":
-      return "This is red";
+      return "This is " + color;
       break;
     case "green":
-      return "This is gree";
+      return "This is " + color;
       break;
     case "orange":
-      return "This is orange";
+      return "This is " + color;
       break;
     default:
       return "Color not found";
@@ -91,7 +91,7 @@ function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (numero === 10 && numero === 5) {
+  if (numero === 10 || numero === 5) {
     return true;
   } else {
     return false;
@@ -129,12 +129,14 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-  if (numero % 3 === 0) {
-    return "fizz";
+  if (numero % 3 === 0 && numero % 5 === 0) {
+    return "fizzbuzz";
   } else if (numero % 5 === 0) {
     return "buzz";
-  } else if (numero % 3 === 0 && numero % 5 === 0) {
-    return "fizzbuzz";
+  } else if (numero % 3 === 0) {
+    return "fizz";
+  } else {
+    return numero;
   }
 }
 
@@ -145,12 +147,12 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false.
-  if (num1 === 0 || num2 === 0 || nume3 === 0) {
+  if (num1 === 0 || num2 === 0 || num3 === 0) {
     return "Error";
-  } else if (num1 > num2 && num1 > num3 && num1 > 0) {
-    return "Número 1 es mayor y positivo";
   } else if (num1 < 0 || num2 < 0 || num3 < 0) {
     return "Hay negativos";
+  } else if (num1 > num2 && num1 > num3 && num1 > 0) {
+    return "Número 1 es mayor y positivo";
   } else if (num3 > num1 && num3 > num2) {
     num3++;
     return num3;
@@ -182,17 +184,34 @@ function tablaDelSeis() {
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí
+  let result = [];
+  for (let index = 0; index <= 10; index++) {
+    result.push(index * 6);
+  }
+  return result;
 }
 
 function tieneTresDigitos(numero) {
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
+  let numText = numero.toString();
+  if (numText.length === 3) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
+  let intentos = 0;
+  do {
+    intentos++;
+    numero = numero + 5;
+  } while (intentos < 8);
+  return numero;
 }
 
 // No modificar nada debajo de esta línea
