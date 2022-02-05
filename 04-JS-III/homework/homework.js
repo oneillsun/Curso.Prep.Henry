@@ -94,10 +94,10 @@ function promedioResultadosTest(resultadosTest) {
     // Tu código:
     let promedioPuntos = 0;
     let sumaPuntos = 0;
-    for (let index = 0; index < numeros.length; index++) {
-        sumaNumeros = sumaNumeros + numeros[index];
+    for (let index = 0; index < resultadosTest.length; index++) {
+        sumaPuntos = sumaPuntos + resultadosTest[index];
     }
-    return sumaNumeros;
+    return (sumaPuntos / resultadosTest.length);
 }
 
 function numeroMasGrande(numeros) {
@@ -173,24 +173,15 @@ function todosIguales(arreglo) {
     //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
     //retornar true, caso contrario retornar false.
     //Escribe tu código aquí
-    let sonIguales = false;
+    let sonIguales = true;
     let valorAnterior;
-    console.log("arreglo.length", arreglo.length);
-    for (let i = 0; i <= arreglo.length; i++) {
-        console.log("1", 1);
+    for (let i = 0; i < arreglo.length; i++) {
         if (i === 0) {
             valorAnterior = arreglo[i];
         } else {
-            console.log("valorAnterior", valorAnterior);
-            console.log("arreglo[i]", arreglo[i]);
-            if (valorAnterior === arreglo[i]) {
-                sonIguales = true;
-            } else {
+            if (valorAnterior !== arreglo[i]) {
                 sonIguales = false;
             }
-        }
-        if (!sonIguales) {
-            return sonIguales;
         }
     }
     return sonIguales;
@@ -201,12 +192,31 @@ function mesesDelAño(array) {
     // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
     //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
     // Tu código:
+    let newArray = [];
+    for (let index = 0; index < array.length; index++) {
+        if (array[index] === "Enero" || array[index] === "Marzo" || array[index] === "Noviembre") {
+            newArray.push(array[index]);
+        }
+    }
+    if (newArray.length !== 3) {
+        return 'No se encontraron los meses pedidos';
+    } else {
+        return newArray;
+    }
+
 }
 
 function mayorACien(array) {
     //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
     //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
     // Tu código:
+    let newArray = [];
+    for (let index = 0; index < array.length; index++) {
+        if (array[index] > 100) {
+            newArray.push(array[index]);
+        }
+    }
+    return newArray;
 }
 
 function breakStatement(numero) {
@@ -217,6 +227,23 @@ function breakStatement(numero) {
     //devolver: "Se interrumpió la ejecución"
     //Pista: usá el statement 'break'
     // Tu código:
+    let newArr = [];
+    let newNum = numero;
+    let sameInter = false;
+    for (let index = 0; index < 10; index++) {
+        if (newNum === index) {
+            sameInter = true;
+            break;
+        } else {
+            newNum = newNum + 2;
+            newArr.push(newNum);
+        }
+    }
+    if (sameInter === true) {
+        return "Se interrumpió la ejecución";
+    } else {
+        return newArr;
+    }
 }
 
 function continueStatement(numero) {
@@ -226,6 +253,15 @@ function continueStatement(numero) {
     //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
     //Pista: usá el statement 'continue'
     // Tu código:
+    let newArr = [];
+    let newNum = numero;
+    for (let index = 0; index < 10; index++) {
+        if (index === 5) { continue; } else {
+            newNum = newNum + 2;
+            newArr.push(newNum);
+        }
+    }
+    return newArr;
 }
 
 // No modificar nada debajo de esta línea
